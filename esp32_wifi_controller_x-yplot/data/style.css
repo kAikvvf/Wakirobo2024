@@ -1,0 +1,62 @@
+body {
+  position: fixed;
+  background: white;
+}
+
+.joystick {
+  position: fixed;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+.joystick-frame {
+  width: 500px;
+  height: 500px;
+  border-radius: 250px;
+  border: 6px black solid;
+  position: relative;
+}
+.joystick-ball {
+  width: 200px;
+  height: 200px;
+  background: grey;
+  border-radius: 100rem;
+  border: 2px black solid;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.left-spin-button {
+  position: fixed;
+  bottom: 20%;
+  left: 15%;
+  width: 300px;
+  height: 270px;
+  background: grey;
+  border-radius: 100px;
+  border: 6px black solid;
+  text-align: center;
+  font-size: 50px;
+  color: white;
+  padding-top: 30px;
+  user-select: none;
+}
+
+.right-spin-button {
+  position: fixed;
+  bottom: 20%;
+  right: 15%;
+  width: 300px;
+  height: 270px;
+  background: grey;
+  border-radius: 100px;
+  border: 6px black solid;
+  text-align: center;
+  font-size: 50px;
+  color: white;
+  padding-top: 30px;
+  user-select: none;
+}

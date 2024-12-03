@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <title>ESP32 Web Server</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div id="joystick" class="joystick">
+      <div id="joystick-frame" class="joystick-frame">
+        <div id="joystick-ball" class="joystick-ball"></div>
+      </div>
+    </div>
+
+    <div id="left-spin-button" class="left-spin-button">左に回転</div>
+
+    <div id="right-spin-button" class="right-spin-button" >右に回転</div>
+
+  </body>
+
+  <script>
+    // json返り値のテンプレート
+    let touchX_stick
+    let touchY_stick
+
+    var json_temp = {
+      X_STICK_STATUS: 0,
+      Y_STICK_STATUS: 0,
+      SPIN_LEFT: 0,
+      SPIN_RIGHT: 0
+    }
+    // X,Yの状態変更リクエストの送信
+    function send_status(x, y,r,l){
+      // JSONデータの作成
+      var send_json = json_temp;
+      send_json.X_STICK_STATUS = x;
+      send_json.Y_STICK_STATUS = y;
+      send_json.SPIN_LEFT = l;
+      send_json.SPIN_RIGHT =r;
+
+      console.log(send_json);
+      
+      send_json = JSON.stringify(send_json);
+
+      // リクエストを送信
+      var xhr = new XMLHttpRequest()
+      xhr.open("POST", "/post_test", true)
+      xhr.setRequestHeader("Content-Type", "application/json")
+      xhr.timeout = 5000; // タイムアウト設定(ms)
+
+      xhr.send(send_json)
+    }
+
+    //ジョイスティック
+    let joystickBall;
+    let joystickCenterX;
+    let joystickCenterY;
+    let joystickLimitNumber = 150;
+
+    const init = () => {
+      setupJoystick();
+      setupSpinLeft();
+      setupSpinRight();
+    };
+
+    const setupJoystick = () => {
+      joystickBall = document.getElementById("joystick-ball");
+      joystickCenterX =
+        joystickBall.getBoundingClientRect().left + joystickBall.clientWidth / 2;
+      joystickCenterY =
+        joystickBall.getBoundingClientRect().top + joystickBall.clientHeight / 2;
+      joystickBall.addEventListener("touchstart", dragStart);
+      joystickBall.addEventListener("touchmove", dragMove);
+      joystickBall.addEventListener("touchend", dragLeave);
+    };
+
+    const dragStart = () => {
+      if (!model) return;
+      dragUpdate();
+    };
+
+    const dragUpdate = () => {
+      if (vectorMagnitude !== 0) {
+        model.translateZ(vectorMagnitude / 10000);
+      }
+      updateRequestId = requestAnimationFrame(dragUpdate);
+    };
+
+    const dragMove = () => {
+      event.preventDefault();
+
+      const pageX = event.touches[0].pageX;
+      const pageY = event.touches[0].pageY;
+
+      touchX_stick =
+        Math.abs(pageX - joystickCenterX) < joystickLimitNumber
+          ? pageX - joystickCenterX
+          : pageX - joystickCenterX > 0
+          ? joystickLimitNumber
+          : -joystickLimitNumber;
+
+      touchY_stick =
+        Math.abs(pageY - joystickCenterY) < joystickLimitNumber
+          ? pageY - joystickCenterY
+          : pageY - joystickCenterY > 0
+          ? joystickLimitNumber
+          : -joystickLimitNumber;
+      joystickBall.style.left = `calc(50% + ${touchX_stick}px)`;
+      joystickBall.style.top = `calc(50% + ${touchY_stick}px)`;
+    };
+
+    const dragLeave = () => {
+      touchX_stick = 0;
+      touchY_stick = 0;
+      joystickBall.style.top = "50%";
+      joystickBall.style.left = "50%";
+      cancelAnimationFrame(updateRequestId);
+      vectorMagnitude = 0;
+    };
+
+    //ボタン
+    let left_spin_button_status;
+    let right_spin_button_status;
+    const setupSpinLeft = () =>{
+      left_spin_button = document.getElementById("left-spin-button");
+      left_spin_button.addEventListener("touchstart", spin_left_pressed);
+      left_spin_button.addEventListener("touchend", spin_left_unpressed);
+    }
+    const spin_left_pressed = () =>{
+      left_spin_button_status = 1;
+    }
+    const spin_left_unpressed = () =>{
+      left_spin_button_status = 0;
+    }
+
+    const setupSpinRight = () =>{
+      right_spin_button = document.getElementById("right-spin-button");
+      right_spin_button.addEventListener("touchstart", spin_right_pressed);
+      right_spin_button.addEventListener("touchend", spin_right_unpressed);
+    }
+    const spin_right_pressed = () =>{
+      right_spin_button_status = 1;
+    }
+    const spin_right_unpressed = () =>{
+      right_spin_button_status = 0;
+    }
+
+    let send_with_interval = self.setInterval(() => {
+      send_status(touchX_stick,touchY_stick,left_spin_button_status,right_spin_button_status)
+    }, 50);
+
+
+    init();
+  </script>
+</html>
