@@ -92,6 +92,7 @@ void setup() {
 
       if(error){
         request->send(400);
+        action(0,0,0);
       }
       else{
         x_status = doc["X_STICK_STATUS"];
