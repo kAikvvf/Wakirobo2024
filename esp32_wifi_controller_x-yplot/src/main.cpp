@@ -13,24 +13,10 @@ const int MOTOR3_DIR = 14;
 
 //ピン出力
 void action(int v_motor1, int v_motor2, int v_motor3){
-  if (v_motor1 < 0){
-    digitalWrite(MOTOR1_DIR,HIGH);
-  }else{
-    digitalWrite(MOTOR1_DIR,LOW);
-  }
-
-  if (v_motor2 < 0){
-    digitalWrite(MOTOR2_DIR,HIGH);
-  }else{
-    digitalWrite(MOTOR2_DIR,LOW);
-  }
+  digitalWrite(MOTOR1_DIR,v_motor1 < 0 ? HIGH : LOW);
+  digitalWrite(MOTOR2_DIR,v_motor2 < 0 ? HIGH : LOW);
+  digitalWrite(MOTOR3_DIR,v_motor3 < 0 ? HIGH : LOW);
   
-  if (v_motor3 < 0){
-    digitalWrite(MOTOR3_DIR,HIGH);
-  }else{
-    digitalWrite(MOTOR3_DIR,LOW);
-  }
-
   analogWrite(MOTOR1_PWM,abs(v_motor1));
   analogWrite(MOTOR2_PWM,abs(v_motor2));
   analogWrite(MOTOR3_PWM,abs(v_motor3));
