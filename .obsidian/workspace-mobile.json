@@ -1,0 +1,164 @@
+{
+  "main": {
+    "id": "b323336b7fc9f4d1",
+    "type": "split",
+    "children": [
+      {
+        "id": "b30fc7bef1f636d9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6e09be0e562e8f23",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "codes.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "codes"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ea2ba6fdf98f1527",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "835b68776313566c",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical"
+          },
+          "icon": "lucide-folder-closed",
+          "title": "Files"
+        }
+      },
+      {
+        "id": "9ad75157943cd54d",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          },
+          "icon": "lucide-search",
+          "title": "Search"
+        }
+      },
+      {
+        "id": "bcefa2549b8a107d",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true
+          },
+          "icon": "lucide-tags",
+          "title": "Tags"
+        }
+      },
+      {
+        "id": "92cbfee7ed49b058",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {},
+          "icon": "lucide-bookmark",
+          "title": "Bookmarks"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "c165cb94787a7304",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "76925f9b1e071ee7",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "codes.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-coming-in",
+          "title": "Backlinks"
+        }
+      },
+      {
+        "id": "b4af4ddd79bf965c",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-going-out",
+          "title": "Outgoing links"
+        }
+      },
+      {
+        "id": "369e42da31725c97",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {},
+          "icon": "lucide-list",
+          "title": "Outline"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian-git:Open Git source control": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "6e09be0e562e8f23",
+  "lastOpenFiles": [
+    "photos.md",
+    "esp32_wifi_controller_x-yplot/test/README",
+    "esp32_wifi_controller_x-yplot/src/main.cpp",
+    "esp32_wifi_controller_x-yplot/platformio.ini",
+    "esp32_wifi_controller_x-yplot/lib/README",
+    "esp32_wifi_controller_x-yplot/include/README",
+    "esp32_wifi_controller_x-yplot/data/style.css",
+    "esp32_wifi_controller_x-yplot/data/index.html",
+    "codes.md",
+    "README.md",
+    "esp32_wifi_controller_x-yplot/test",
+    "esp32_wifi_controller_x-yplot/src",
+    "esp32_wifi_controller_x-yplot/lib"
+  ]
+}
