@@ -1,3 +1,3 @@
 # GUI 操作できるロボットのプログラム
 - [プログラム](codes.md)
-- [ロボットの写真](photos.md)
+- [ロボットの概要](robot-explanation.md)

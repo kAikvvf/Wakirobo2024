@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "codes.md",
+                "file": "robot-explanation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "codes"
+              "title": "robot-explanation"
             }
           }
         ]
@@ -147,7 +147,13 @@
   },
   "active": "6e09be0e562e8f23",
   "lastOpenFiles": [
+    "README.md",
+    "robot-explanation.md",
+    "gui-photo.png",
+    "Screenshot_20241201-004007.png",
+    "codes.md",
     "photos.md",
+    "preview.jpg",
     "esp32_wifi_controller_x-yplot/test/README",
     "esp32_wifi_controller_x-yplot/src/main.cpp",
     "esp32_wifi_controller_x-yplot/platformio.ini",
@@ -155,8 +161,6 @@
     "esp32_wifi_controller_x-yplot/include/README",
     "esp32_wifi_controller_x-yplot/data/style.css",
     "esp32_wifi_controller_x-yplot/data/index.html",
-    "codes.md",
-    "README.md",
     "esp32_wifi_controller_x-yplot/test",
     "esp32_wifi_controller_x-yplot/src",
     "esp32_wifi_controller_x-yplot/lib"
