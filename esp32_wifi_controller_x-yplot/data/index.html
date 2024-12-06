@@ -20,16 +20,18 @@
   </body>
 
   <script>
-    // json返り値のテンプレート
+    // ジョイスティックから取得した値を格納する変数
     let touchX_stick
     let touchY_stick
 
+    // json返り値のテンプレート
     var json_temp = {
       X_STICK_STATUS: 0,
       Y_STICK_STATUS: 0,
       SPIN_LEFT: 0,
       SPIN_RIGHT: 0
     }
+
     // X,Yの状態変更リクエストの送信
     function send_status(x, y,r,l){
       // JSONデータの作成
